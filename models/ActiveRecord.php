@@ -131,6 +131,19 @@ class ActiveRecord {
         return array_shift( $resultado ) ;
     }
 
+    //Where de multiples columnas
+    public static function whereArray($array = []) {
+        $query = "SELECT * FROM " . static::$tabla  ." WHERE";
+        $and = '';
+        foreach($array as $key => $value){
+            $query .= $and . " {$key}='{$value}'";
+            $and = " AND";
+        }
+        
+        $resultado = self::consultarSQL($query);
+        return $resultado;
+    }
+
     // crea un nuevo registro
     public function crear() {
         // Sanitizar los datos

@@ -47,16 +47,19 @@
                 </div>
             <?php  };?>
         </div>
+        <input type="hidden" name="dia_id" value="">
+        
     </div>
 
     <div id="horas" class="formulario__campo">
         <label for="" class="formulario__label">Seleccionar Hora</label>
-        <ul class="horas">
+        <ul  class="horas">
             <?php foreach($horas as $hora){?>
-                <li class="horas__hora"><?php echo $hora->hora;?></li>
+                <li id="horas" data-hora-id="<?php echo $hora->id;?>" class="horas__hora horas__hora--deshabilitado"><?php echo $hora->hora;?></li>
            <?php };?>
         </ul>
     </div>
+    <input type="hidden" name="hora_id" value="">
 </fieldset>
 
 <fieldset class="formulario__fieldset">
@@ -71,6 +74,10 @@
          id="ponente"
          placeholder="Buscar Ponente"
          >
+         <ul id="listado-ponentes" class="listado-ponentes">
+
+         </ul>
+         <input type="hidden" name="ponente_id" value="">
     </div>
 
     <div class="formulario__campo">
